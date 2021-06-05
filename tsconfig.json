@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "typeRoots": ["src/utils/types/*"],
+    "paths": {
+      "@app/*": ["./src/*"],
+      "@assets/images/*": ["./src/assets/images/*"],
+      "@assets/scss/*": ["./src/assets/scss/*"],
+      "@assets/svg/*": ["./src/assets/svg/*"],
+      "@components/atoms/*": ["./src/components/atoms/*"],
+      "@components/molecule/*": ["./src/components/molecules/*"],
+      "@components/organisms/*": ["./src/components/organisms/*"],
+      "@components/templates/*": ["./src/components/templates/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/constants/*": ["./src/utils/constants/*"],
+      "@utils/contexts/*": ["./src/utils/contexts/*"],
+      "@utils/mocks/*": ["./src/utils/mocks/*"],
+      "@utils/helpers/*": ["./src/utils/helpers/*"],
+      "@utils/hooks/*": ["./src/utils/hooks/*"],
+      "@utils/libs/*": ["./src/utils/libs/*"]
+    }
+  },
+  "include": ["./src", "stories", "**/*.ts", "**/*.tsx", "**/*.stories.*"]
+}
