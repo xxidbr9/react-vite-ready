@@ -8,8 +8,8 @@ type Variant = {
 }
 
 const TypographyStyled = styled.span<Variant>`
-  font-size: ${({ size }) => !!size ? "14px" : size + "px"};
-  font-weight: ${({ fontWeight }) => !!fontWeight ? "normal" : fontWeight};
+  font-size: ${({ size }) => !!size ? size + "px" : "14px"};
+  font-weight: ${({ fontWeight }) => !!fontWeight ? fontWeight : "normal"};
 `
 
 export type TypographyProps = {
