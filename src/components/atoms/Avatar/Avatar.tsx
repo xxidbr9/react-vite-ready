@@ -10,17 +10,17 @@ const AvatarTextStyled = styled.span``
 export type AvatarProps = {
   src?: JSX.IntrinsicElements["img"]["src"]
   size?: string | number
-  intialName?: string
+  initialName?: string
 }
 
-const Avatar: React.FC<AvatarProps & JSX.IntrinsicElements["div"]> = ({ src, size, intialName, ...props }) => {
+const Avatar: React.FC<AvatarProps & JSX.IntrinsicElements["div"]> = ({ src, size, initialName, ...props }) => {
   return (
     <AvatarStyled {...props}>
       {!!src ?
         <AvatarImageStyled src={src} /> :
         (
           <AvatarTextStyled >
-            {intialName}
+            {initialName}
           </AvatarTextStyled>
         )
       }

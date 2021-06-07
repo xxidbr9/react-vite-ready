@@ -11,7 +11,7 @@ export default {
 
 export const AvatarDefault = Template.bind({})
 AvatarDefault.args = {
-  intialName: "N"
+  initialName: "N"
 }
 
 export const AvatarUsingImage = Template.bind({})
