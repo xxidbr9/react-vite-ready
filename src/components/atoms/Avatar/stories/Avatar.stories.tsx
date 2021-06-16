@@ -20,7 +20,9 @@ export default {
 export const AvatarDefault = Template.bind({})
 AvatarDefault.args = {
   initialName: "N",
-  variant: "big"
+  variant: "big",
+  src: ""
+
 }
 
 export const AvatarUsingImage = Template.bind({})
