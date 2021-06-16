@@ -13,6 +13,7 @@ module.exports = function (api) {
             "@assets/images": "./src/assets/images",
             "@assets/scss": "./src/assets/scss",
             "@assets/svg": "./src/assets/svg",
+            "@assets/font": "./src/assets/font",
             "@components/atoms": "./src/components/atoms",
             "@components/molecule": "./src/components/molecules",
             "@components/organisms": "./src/components/organisms",

@@ -1,4 +1,4 @@
-import { FontSizingType, FontWeightType } from '@app/styles/fonts'
+import { FontSizingType, FontWeightType, productSansFont } from '@app/styles/fonts'
 import styled from '@emotion/styled'
 import React from 'react'
 
@@ -8,6 +8,7 @@ type Variant = {
 }
 
 const TypographyStyled = styled.span<Variant>`
+  ${productSansFont}
   font-size: ${({ size }) => !!size ? size + "px" : "14px"};
   font-weight: ${({ fontWeight }) => !!fontWeight ? fontWeight : "normal"};
 `
