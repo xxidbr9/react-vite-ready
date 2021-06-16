@@ -5,7 +5,8 @@ const color = {
   GREY_2: "#C4C4C4",
   GREY_3: "#403837",
   YELLOW: "#FFBD00",
-  BROKEN_WHITE: "#F5F5F5"
+  BROKEN_WHITE: "#F5F5F5",
+  WHITE: "#FFF"
 }
 
 
