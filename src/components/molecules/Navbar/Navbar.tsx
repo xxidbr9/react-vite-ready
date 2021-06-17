@@ -8,6 +8,7 @@ type NavbarType = {
 
 const StyledNavbarWraper = styled.div<NavbarType>`
   width: 100%;
+  background-color: pink;
 `;
 
 
