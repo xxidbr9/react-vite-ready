@@ -2,10 +2,10 @@
     "version": "0.0.0",
     "scripts": {
         "dev": "vite",
-        "build-vite": "tsc && vite build",
+        "build:vite": "tsc && vite build",
         "serve": "vite preview",
         "story": "start-storybook -p 6006",
-        "build-story": "build-storybook -o dist-story"
+        "build:story": "build-storybook -o dist-story"
     },
     "dependencies": {
         "@emotion/css": "^11.1.3",
