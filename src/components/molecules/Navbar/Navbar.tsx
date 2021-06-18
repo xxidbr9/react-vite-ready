@@ -6,6 +6,10 @@ type NavbarType = {
 
 }
 
+export type NavbarProps = {
+
+}
+
 const StyledNavbarWraper = styled.div<NavbarType>`
   width: 100%;
   background-color: pink;
@@ -14,7 +18,7 @@ const StyledNavbarWraper = styled.div<NavbarType>`
 
 const Navbar = () => {
   return (
-    <StyledNavbarWraper>
+    <StyledNavbarWraper className="container">
       hello
     </StyledNavbarWraper>
   )
