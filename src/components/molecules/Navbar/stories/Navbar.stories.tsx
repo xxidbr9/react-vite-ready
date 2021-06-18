@@ -2,8 +2,13 @@ import { Meta, Story } from '@storybook/react'
 import React from 'react'
 import Navbar, { NavbarProps } from '../Navbar'
 
-const Template: Story<NavbarProps> = (args) => <Navbar {...args} />
-
+const Template: Story<NavbarProps> = (args) => {
+  return (
+    <Navbar {...args} >
+      
+    </Navbar>
+  )
+}
 export default {
   title: 'Molecules/Navbar',
   component: Navbar
@@ -11,6 +16,7 @@ export default {
 
 export const NavbarDefault = Template.bind({})
 NavbarDefault.args = {
+
 }
 
 

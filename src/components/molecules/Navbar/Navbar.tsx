@@ -1,25 +1,30 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import Brand from '@app/components/atoms/Brand';
+// import tw from 'twin.macro'
+// import Brand from '@components/atoms/Brand';
 
 
-type NavbarType = {
-
-}
 
 export type NavbarProps = {
 
 }
+const MenuStyled = styled.div`
 
-const StyledNavbarWraper = styled.div<NavbarType>`
-  width: 100%;
-  background-color: pink;
+`
+
+const StyledNavbarWraper = styled.div`
+ 
 `;
 
 
-const Navbar = () => {
+
+
+
+const Navbar = (props) => {
   return (
-    <StyledNavbarWraper className="m-16">
-      hello
+    <StyledNavbarWraper>
+      <Brand />
     </StyledNavbarWraper>
   )
 }

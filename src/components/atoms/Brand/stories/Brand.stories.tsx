@@ -8,7 +8,7 @@ export default {
 } as Meta;
 
 const Template: Story<ImgType> = args => <Brand {...args} />
-export const BrandBasic = Template.bind({})
-BrandBasic.args = {
+export const BrandDefault = Template.bind({})
+BrandDefault.args = {
 
 }

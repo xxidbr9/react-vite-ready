@@ -15,7 +15,7 @@
     "noEmit": true,
     "jsx": "react",
     "baseUrl": ".",
-    "typeRoots": ["src/utils/types/*"],
+    "typeRoots": ["./src/utils/types/*"],
     "paths": {
       "@app/*": ["./src/*"],
       "@assets/images/*": ["./src/assets/images/*"],
@@ -23,7 +23,7 @@
       "@assets/svg/*": ["./src/assets/svg/*"],
       "@assets/font/*":["./src/assets/font/*"],
       "@components/atoms/*": ["./src/components/atoms/*"],
-      "@components/molecule/*": ["./src/components/molecules/*"],
+      "@components/molecules/*": ["./src/components/molecules/*"],
       "@components/organisms/*": ["./src/components/organisms/*"],
       "@components/templates/*": ["./src/components/templates/*"],
       "@styles/*": ["./src/styles/*"],
@@ -35,5 +35,5 @@
       "@utils/libs/*": ["./src/utils/libs/*"]
     }
   },
-  "include": ["./src", "stories", "**/*.ts", "**/*.tsx", "**/*.stories.*"]
+  "include": ["./src", "stories", "**/*.ts", "**/*.tsx", "**/*.stories.*"],
 }

@@ -18,6 +18,8 @@ const variantSizeHandle = (variant) => {
       return '9.063rem'
     case 'small':
       return '2.5rem'
+    default:
+      return '2.5rem'
   }
 }
 

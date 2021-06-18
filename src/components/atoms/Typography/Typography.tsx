@@ -14,8 +14,8 @@ const TypographyStyled = styled.span<Variant>`
 `
 
 export type TypographyProps = {
-  variant?: FontSizingType
-  weight?: FontWeightType
+  variant: FontSizingType
+  weight: FontWeightType
 }
 
 const Typography: React.FC<TypographyProps & JSX.IntrinsicElements["span"]> = ({ variant, weight, ...props }) => {
