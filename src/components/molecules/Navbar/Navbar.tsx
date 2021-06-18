@@ -18,7 +18,7 @@ const StyledNavbarWraper = styled.div<NavbarType>`
 
 const Navbar = () => {
   return (
-    <StyledNavbarWraper className="container">
+    <StyledNavbarWraper className="m-16">
       hello
     </StyledNavbarWraper>
   )
