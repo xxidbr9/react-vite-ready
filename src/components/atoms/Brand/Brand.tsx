@@ -17,13 +17,11 @@ const Images = (props: ImgType) => (<img {...props} />)
 
 const Brand: React.FC<ImgType> = ({ ...props }) => {
   const StyledImage = styled("img")`
-    width: 55px;
-    height: 37px;
+    width: 3.5rem;
+    height: 2.3rem;
   `;
   return (
-    <span>
-      <StyledImage {...props} src={EllaBrandImage}/>
-    </span>
+    <StyledImage {...props} src={EllaBrandImage} />
   )
 }
 

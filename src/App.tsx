@@ -8,9 +8,6 @@ function App() {
 
   return (
     <div>
-      <Brand />
-      <Typography variant={48} weight={700}> Hello</Typography>
-      <Avatar src="https://source.unsplash.com/random/2" initialName="N"/>
       <Navbar />
     </div>
   )
