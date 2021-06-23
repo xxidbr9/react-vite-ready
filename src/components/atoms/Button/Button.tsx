@@ -25,13 +25,7 @@ export interface ButtonInterface extends React.FC<WithAsProps & ButtonProps> {
 
 const baseStyle = `flex gap-2 justify-center items-center px-5 cursor-pointer outline-none focus:outline-none rounded-full`
 
-const isSmallStyle = (small: boolean) => {
-  if (!!small) {
-    return tw`py-1`
-  } else {
-    return tw`py-2`
-  }
-}
+const isSmallStyle = (small: boolean) => !!small ? tw`py-1` : tw`py-2`
 
 const ButtonStyledDefault = styled.button<ButtonProps>`
     ${tw`
