@@ -67,6 +67,5 @@ export const ButtonNoBackgroud = Template.bind({})
 ButtonNoBackgroud.args = {
   children: "BUTTON",
   variant: "bordered",
-  isSmall: true,
   prefix: <Icon iconSrc={TrashIcon} />,
 }
