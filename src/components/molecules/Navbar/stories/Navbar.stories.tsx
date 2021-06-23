@@ -8,21 +8,21 @@ import Navbar, { NavbarProps, Item } from '../Navbar'
 const Template: Story<NavbarProps> = (args) => {
 
   const menu = [
-    "Beranda",
-    "Artikel",
-    "Catalog",
-    "Treatment",
-    "Klinik",
-    "Reseller",
-    "Tentang Kami"
+    { name: "Beranda", isActive: true },
+    { name: "Artikel", isActive: false },
+    { name: "Catalog", isActive: false },
+    { name: "Treatment", isActive: false },
+    { name: "Klinik", isActive: false },
+    { name: "Reseller", isActive: false },
+    { name: "Tentang Kami", isActive: false }
   ]
 
   return (
     <Navbar {...args} >
       {menu.map((e, i) => (
-        <Item key={i} textStyle={{ color: color.BROWN_1 }}>
+        <Item key={i} textStyle={{ color: color.BROWN_1 }} isActive={e.isActive}>
           <a href="https://google.com" className="cursor-pointer">
-            {e}
+            {e.name}
           </a>
         </Item>
       ))}

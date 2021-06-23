@@ -6,26 +6,30 @@ type iconSrc = React.FC
 
 export type IconProps = {
   iconSrc: iconSrc
+  iconSize?: string
 }
 
 /* 
 ===== TODO =====
-[ ] Add toast components for outer wrap
+[ ] Add toast/Accent components for outer wrap
 [ ] 
 === END TODO ===
 
 */
 
 
+
+
 const StyledIconWraper = styled.div`
-  width: 1.5rem;
-  height: 1.5rem;
+  /* width: 100%;
+  height: 100%; */
 `;
 
 const Icon: React.FC<IconProps> = (props) => {
+  const { iconSrc: IconSrc } = props
   return (
-    <StyledIconWraper>
-      <props.iconSrc />
+    <StyledIconWraper {...props}>
+      <IconSrc />
     </StyledIconWraper>
   )
 }

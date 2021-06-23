@@ -21,6 +21,10 @@ export type FontWeightType = JSX.IntrinsicElements["span"]["style"]["fontWeight"
 
 export type FontSizingType = 12 | 14 | 16 | 18 | 20 | 24 | 30 | 36 | 48 | 64
 
+export const optionsWeigth = (): FontWeightType[] => {
+  return ["bold", 'bolder', 'lighter', 'normal', ...Font.weightSize]
+}
+
 export const productSansFont = css`
 @font-face {
     font-family: 'Product Sans Regular';

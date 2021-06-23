@@ -1,5 +1,6 @@
-import React, { Children } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
+import { css, cx } from '@emotion/css'
 import Brand from '@app/components/atoms/Brand';
 import Typography from '@app/components/atoms/Typography';
 import color from '@app/styles/colors';
@@ -10,10 +11,7 @@ import BellIcon from '@assets/svg/icon/Bell.icon'
 import SearchIcon from '@assets/svg/icon/Search.icon'
 import { WithAsProps } from '@app/utils/types/utils.types';
 import tw from 'twin.macro'
-// import tw from 'twin.macro'
-// import Brand from '@components/atoms/Brand';
-
-
+import Button from '@app/components/atoms/Button';
 
 export interface NavbarProps extends WithAsProps {
   variant?: ""
@@ -21,14 +19,24 @@ export interface NavbarProps extends WithAsProps {
   pictureSrc?: JSX.IntrinsicElements["img"]["src"]
 }
 
-const MenuStyled = styled.div`
 
-`
 
 const StyledNavbarWraper = styled.nav<NavbarProps>`
   ${tw`bg-white w-full shadow-md`}
 `;
 
+
+const NavbarContainer = styled.div`
+  ${tw`py-2 flex items-center justify-between container mx-auto`}
+`;
+
+const MenuStyled = styled.ul`
+  ${tw`flex justify-center w-full gap-8 px-5 items-center`}
+`
+
+const RightMenuStyled = styled.ul`
+  ${tw`flex flex-row items-center gap-10`}
+`;
 
 const menu = [
   "Beranda",
@@ -54,6 +62,7 @@ const menu = [
 
 type ItemProps = {
   textStyle?: React.CSSProperties
+  isActive?: boolean
 }
 export interface NavbarInterface extends React.FC<NavbarProps> {
   Item?: React.FC<WithAsProps & ItemProps>
@@ -64,17 +73,19 @@ const Navbar: NavbarInterface = (props) => {
   const { children, isLogin, variant, pictureSrc } = props
   return (
     <StyledNavbarWraper>
-      <div className="py-2 flex items-center justify-between container mx-auto">
+      {/* <div className={css`py-2 flex items-center justify-between container mx-auto`} css={css`tw.`}> */}
+      <NavbarContainer>
+
         {/* Brand Start here */}
         <Brand />
         {/* Brand End here */}
         {/* Menu Start here */}
-        <ul className="flex justify-center w-full gap-10 px-5 items-center">
+        <MenuStyled>
           {children}
-        </ul>
+        </MenuStyled>
         {/* Menu End here */}
         {/* Left Menu Start here */}
-        <ul className="flex flex-row items-center gap-10">
+        <RightMenuStyled >
           <li>
             <Icon iconSrc={SearchIcon} />
           </li>
@@ -91,12 +102,12 @@ const Navbar: NavbarInterface = (props) => {
           }
           {!isLogin &&
             <li>
-              <button>masuk</button>
+              <Button isSmall>masuk</Button>
             </li>
           }
-        </ul>
+        </RightMenuStyled>
         {/* Left Menu End here */}
-      </div>
+      </NavbarContainer>
     </StyledNavbarWraper>
   )
 }
@@ -105,14 +116,18 @@ const Navbar: NavbarInterface = (props) => {
 
 
 
+const NavbarMenuItemsStyled = styled.li<WithAsProps & ItemProps>`
+  ${tw`flex items-center`}
+`
+
 Navbar.Item = (props) => {
-  const { as: Components, children, classPrefix, textStyle } = props
+  const { as: Components, classPrefix, textStyle, isActive } = props
   return (
-    <li className={`flex items-center ${!!classPrefix ? classPrefix : ""}`}>
-      <Typography variant={14} style={textStyle}>
+    <NavbarMenuItemsStyled className={classPrefix}>
+      <Typography variant={14} style={textStyle} weight={isActive ? "bold" : "normal"}>
         <Components {...props} />
       </Typography>
-    </li>
+    </NavbarMenuItemsStyled>
   )
 }
 Navbar.Item.defaultProps = {
