@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react'
 import React from 'react'
 import Icon, { IconProps } from '../Icon'
 import BellIcon from '@assets/svg/icon/Bell.icon'
-import BellIcon2 from '@assets/svg/icon/Cart.icon'
+import Cart from '@assets/svg/icon/Cart.icon'
 
 
 const Template: Story<IconProps> = (args) => <Icon {...args} />
@@ -24,5 +24,5 @@ IconDefault.args = {
 
 export const IconDefault2 = Template.bind({})
 IconDefault2.args = {
-  iconSrc: BellIcon2
+  iconSrc: Cart
 }

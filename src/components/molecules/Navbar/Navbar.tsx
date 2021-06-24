@@ -17,6 +17,9 @@ export interface NavbarProps extends WithAsProps {
   variant?: ""
   isLogin?: boolean,
   pictureSrc?: JSX.IntrinsicElements["img"]["src"]
+  totalCartItem?: number | null
+  totalNotifItem?: number | null,
+  initialName?: string
 }
 
 
@@ -27,7 +30,7 @@ const StyledNavbarWraper = styled.nav<NavbarProps>`
 
 
 const NavbarContainer = styled.div`
-  ${tw`py-2 flex items-center justify-between container mx-auto`}
+  ${tw`py-2 flex items-center justify-between mx-auto`}
 `;
 
 const MenuStyled = styled.ul`
@@ -53,7 +56,7 @@ const menu = [
 ===== TODO =====
 [ ] Menus
 [ ] Change list menu to a components
-[ ] Props if login
+[X] Props if login
 [ ] Search Appear
 [ ] Accent on Icon 
 === END TODO ===
@@ -74,7 +77,7 @@ const Navbar: NavbarInterface = (props) => {
   return (
     <StyledNavbarWraper>
       {/* <div className={css`py-2 flex items-center justify-between container mx-auto`} css={css`tw.`}> */}
-      <NavbarContainer>
+      <NavbarContainer className="container">
 
         {/* Brand Start here */}
         <Brand />
@@ -90,14 +93,14 @@ const Navbar: NavbarInterface = (props) => {
             <Icon iconSrc={SearchIcon} />
           </li>
           <li>
-            <Icon iconSrc={CartIcon} />
+            <Icon iconSrc={CartIcon} number={props.totalCartItem} />
           </li>
           <li>
-            <Icon iconSrc={BellIcon} />
+            <Icon iconSrc={BellIcon} number={props.totalNotifItem} />
           </li>
           {!!isLogin &&
             <li>
-              <Avatar src={pictureSrc} />
+              <Avatar src={!!pictureSrc ? pictureSrc : null} initialName={props.initialName} />
             </li>
           }
           {!isLogin &&
@@ -112,6 +115,10 @@ const Navbar: NavbarInterface = (props) => {
   )
 }
 
+Navbar.defaultProps = {
+  totalCartItem: 0,
+  totalNotifItem: 0
+}
 
 
 

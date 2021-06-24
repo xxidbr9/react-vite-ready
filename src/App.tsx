@@ -1,10 +1,12 @@
+import { Item } from '@components/molecules/Navbar/Navbar'
+import color from '@styles/colors'
 import React, { useState } from 'react'
-import Navbar from './components/molecules/Navbar'
 import Footer from './components/organisms/Footer'
 function App() {
 
+
   return (
-    <Footer />
+    <Footer variant={"light"} />
   )
 }
 

@@ -11,6 +11,7 @@ import iStoreImage from '@assets/images/istore_btn.png'
 import color from '@styles/colors'
 import styled from '@emotion/styled'
 import tw from 'twin.macro'
+
 /* 
 ===== TODO =====
 [ ] Add Color Variant
@@ -78,9 +79,9 @@ const FooterLinkApps = (props) => {
           Dapatkan Aplikasi Glowstore
         </Typography>
       </span>
-      <div className="mt-2 flex gap-3">
-        <img src={GplayImage} alt="Glowstore google play link" />
-        <img src={iStoreImage} alt="Glowstore apple store link" />
+      <div className="mt-2 flex gap-3 mobile:justify-center tablet:justify-start">
+        <img src={GplayImage} alt="Glowstore google play link" className="mobile:w-2/5 mobile:h-auto"/>
+        <img src={iStoreImage} alt="Glowstore apple store link" className="mobile:w-2/5 mobile:h-auto"/>
       </div>
     </div>
   )
@@ -124,7 +125,7 @@ const Footer: React.FC<FooterProps> = (props) => {
       case "grey" || "light":
         return color.BROWN_2
       default:
-        return "bg-BLACK text-white"
+        return color.BROWN_2
     }
   }, [variant])
 
@@ -139,24 +140,31 @@ const Footer: React.FC<FooterProps> = (props) => {
 
   return (
     <footer className={`${variantBGHandler(variant)} relative`}>
-      <div className="py-10 laptop:container mobile:px-6 mx-auto ">
+      <div className="py-10 laptop:container mobile:px-4 mx-auto ">
         <Brand />
         <div className="py-8 w-full laptop:flex laptop:gap-4 border-b-2 justify-between mobile:grid mobile:grid-cols-2 mobile:gap-5">
           {menus.map((menu, index) => (
             <FooterMenu {...menu} key={index} />
           ))}
-          <div className="mobile:col-span-2 laptop:col-span-1">
+          
+          <div className="laptop:hidden gap-10 mobile:gap-1 my-8 mobile:flex mobile:flex-col mobile:col-span-2">
+            <Typography className="underline">Kebijakan Privasi</Typography>
+            <Typography className="underline">Syarat & Ketentuan</Typography>
+          </div>
+
+          <div className="mobile:col-span-2 tablet:col-span-1">
             <FooterSocialMedia color={variantSVGColorHandler(variant)} />
           </div>
-          <div className="mobile:col-span-2 laptop:col-span-1">
+          <div className="mobile:col-span-2 tablet:col-span-1 ">
             <FooterLinkApps />
           </div>
+
         </div>
-        <div className="flex gap-10 my-10">
+        <div className="laptop:flex gap-10 my-8 mobile:hidden">
           <Typography className="underline">Kebijakan Privasi</Typography>
           <Typography className="underline">Syarat & Ketentuan</Typography>
         </div>
-        <Typography variant={12} className="laptop:text-left mobile:text-center">
+        <Typography variant={12} className="mobile:pt-4 laptop:pt-0 laptop:text-left mobile:text-center">
           © 2008 - 2021 Ella Skin Care | Ella Skin Care is a trademark of PT Ella Karunia Estetika. Registered in the Directorate General of Intellectual Property of the Republic of Indonesia.
         </Typography>
       </div>
@@ -165,7 +173,7 @@ const Footer: React.FC<FooterProps> = (props) => {
 }
 
 Footer.defaultProps = {
-  variant: "dark"
+  variant: "light"
 }
 
 export default Footer

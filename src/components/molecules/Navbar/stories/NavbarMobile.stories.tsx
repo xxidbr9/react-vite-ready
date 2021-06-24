@@ -30,7 +30,7 @@ const Template: Story<NavbarProps> = (args) => {
   )
 }
 export default {
-  title: 'Molecules/Navbar',
+  title: 'Molecules/Navbar (Mobile)',
   component: Navbar,
   argTypes: {
     totalCartItem: {
