@@ -38,7 +38,7 @@ const AccentNumber = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: -.2rem;
+  top: -.3rem;
   left: .4rem;
 `
 
