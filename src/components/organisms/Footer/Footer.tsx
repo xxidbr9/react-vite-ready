@@ -1,14 +1,16 @@
-import FacebookLogo from '@app/assets/svg/social_media/FacebookLogo'
-import InstagramLogo from '@app/assets/svg/social_media/InstagramLogo'
-import LinkedinLogo from '@app/assets/svg/social_media/LinkedinLogo'
-import TwitterLogo from '@app/assets/svg/social_media/Twitterlogo'
-import YoutubeLogo from '@app/assets/svg/social_media/YoutubeLogo'
-import Brand from '@app/components/atoms/Brand'
-import Typography from '@app/components/atoms/Typography'
-import React from 'react'
-import GplayImage from '@app/assets/images/g_play_btn.png'
-import iStoreImage from '@app/assets/images/istore_btn.png'
-
+import FacebookLogo from '@assets/svg/social_media/FacebookLogo'
+import InstagramLogo from '@assets/svg/social_media/InstagramLogo'
+import LinkedinLogo from '@assets/svg/social_media/LinkedinLogo'
+import TwitterLogo from '@assets/svg/social_media/Twitterlogo'
+import YoutubeLogo from '@assets/svg/social_media/YoutubeLogo'
+import Brand from '@components/atoms/Brand'
+import Typography from '@components/atoms/Typography'
+import React, { useCallback, useMemo } from 'react'
+import GplayImage from '@assets/images/g_play_btn.png'
+import iStoreImage from '@assets/images/istore_btn.png'
+import color from '@styles/colors'
+import styled from '@emotion/styled'
+import tw from 'twin.macro'
 /* 
 ===== TODO =====
 [ ] Add Color Variant
@@ -16,6 +18,7 @@ import iStoreImage from '@app/assets/images/istore_btn.png'
 === END TODO ===
 
 */
+
 
 type FooterMenuTypes = {
   title: React.Component | string,
@@ -42,6 +45,13 @@ const FooterMenu: React.FC<FooterMenuTypes> = (props) => {
 }
 
 const FooterSocialMedia = ({ color, ...props }) => {
+  const socialList = useMemo(() => [
+    <FacebookLogo fill={color} />,
+    <InstagramLogo fill={color} />,
+    <LinkedinLogo fill={color} />,
+    <TwitterLogo fill={color} />,
+    <YoutubeLogo fill={color} />
+  ], [color])
   return (
     <div>
       <span>
@@ -50,27 +60,17 @@ const FooterSocialMedia = ({ color, ...props }) => {
         </Typography>
       </span>
       <ul className="mt-2 flex gap-4">
-        <li>
-          <FacebookLogo fill={color} />
-        </li>
-        <li>
-          <InstagramLogo fill={color} />
-        </li>
-        <li>
-          <LinkedinLogo fill={color} />
-        </li>
-        <li>
-          <TwitterLogo fill={color} />
-        </li>
-        <li>
-          <YoutubeLogo fill={color} />
-        </li>
+        {socialList.map((component, index) => (
+          <li key={index}>
+            {component}
+          </li>
+        ))}
       </ul>
     </div>
   )
 }
 
-const FooterLinkApps = () => {
+const FooterLinkApps = (props) => {
   return (
     <div>
       <span>
@@ -87,15 +87,46 @@ const FooterLinkApps = () => {
 }
 
 
-const VariantFooter = ["dark", "light", "grey"] as const
+export const VariantFooter = ["dark", "light", "grey"] as const
 
 type VariantType = typeof VariantFooter[number]
 
 export type FooterProps = {
-  variant?: VariantType
+  variant?: VariantType,
 }
 
 const Footer: React.FC<FooterProps> = (props) => {
+  /* 
+    ===== TODO =====
+    [ ] Setup for footer menu
+    === END TODO ===
+  
+  */
+
+  const { variant } = props
+  const variantBGHandler = useCallback((color) => {
+    switch (color) {
+      case "dark":
+        return "bg-BLACK text-white"
+      case "grey":
+        return "bg-BROKEN_WHITE text-BROWN_2"
+      case "light":
+        return "bg-FIXED_WHITE_1 text-BROWN_2"
+      default:
+        return "bg-BLACK text-white"
+    }
+  }, [variant])
+
+  const variantSVGColorHandler = useCallback((theme) => {
+    switch (theme) {
+      case "dark":
+        return color.FIXED_WHITE_1
+      case "grey" || "light":
+        return color.BROWN_2
+      default:
+        return "bg-BLACK text-white"
+    }
+  }, [variant])
 
   const menus: FooterMenuTypes[] = [
     { title: "Konten", listMenu: ["Produk", "Treatment", "Klinik", "Artikel"] },
@@ -104,27 +135,37 @@ const Footer: React.FC<FooterProps> = (props) => {
     { title: "Layanan", listMenu: ["Dukungan / Bantuan", "Kontak"] },
   ]
 
+
+
   return (
-    <footer className="bg-BLACK relative text-white">
-      <div className="py-10 container mx-auto ">
+    <footer className={`${variantBGHandler(variant)} relative`}>
+      <div className="py-10 laptop:container mobile:px-6 mx-auto ">
         <Brand />
-        <div className="py-8 w-full flex gap-4 border-b-2 justify-between">
+        <div className="py-8 w-full laptop:flex laptop:gap-4 border-b-2 justify-between mobile:grid mobile:grid-cols-2 mobile:gap-5">
           {menus.map((menu, index) => (
-            <FooterMenu {...menu} />
+            <FooterMenu {...menu} key={index} />
           ))}
-          <FooterSocialMedia color={"#fff"} />
-          <FooterLinkApps />
+          <div className="mobile:col-span-2 laptop:col-span-1">
+            <FooterSocialMedia color={variantSVGColorHandler(variant)} />
+          </div>
+          <div className="mobile:col-span-2 laptop:col-span-1">
+            <FooterLinkApps />
+          </div>
         </div>
         <div className="flex gap-10 my-10">
           <Typography className="underline">Kebijakan Privasi</Typography>
           <Typography className="underline">Syarat & Ketentuan</Typography>
         </div>
-        <Typography variant={12}>
+        <Typography variant={12} className="laptop:text-left mobile:text-center">
           © 2008 - 2021 Ella Skin Care | Ella Skin Care is a trademark of PT Ella Karunia Estetika. Registered in the Directorate General of Intellectual Property of the Republic of Indonesia.
         </Typography>
       </div>
     </footer>
   )
+}
+
+Footer.defaultProps = {
+  variant: "dark"
 }
 
 export default Footer

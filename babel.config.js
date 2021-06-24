@@ -9,7 +9,6 @@ module.exports = function (api) {
           "root": ["."],
           "extensions": [".js", ".jsx", ".es", ".es6", ".mjs", ".ts", ".tsx"],
           "alias": {
-            "@app": "./src",
             "@assets/images": "./src/assets/images",
             "@assets/scss": "./src/assets/scss",
             "@assets/svg": "./src/assets/svg",
@@ -24,7 +23,9 @@ module.exports = function (api) {
             "@utils/mocks": "./src/utils/mocks",
             "@utils/helpers": "./src/utils/helpers",
             "@utils/hooks": "./src/utils/hooks",
-            "@utils/libs": "./src/utils/libs"
+            "@utils/libs": "./src/utils/libs",
+            "@base": "./",
+            "@app": "./src",
           }
         }
       ]

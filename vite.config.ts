@@ -23,6 +23,7 @@ export default defineConfig({
     //   { find: "@utils/libs", replacement: path.resolve(__dirname, 'src/utils/lib') }
     // ]
     alias: {
+      "@base/": `${path.resolve(__dirname, '')}/`,
       '@app/': `${path.resolve(__dirname, 'src')}/`,
       '@assets/': `${path.resolve(__dirname, 'src/assets')}/`,
       '@assets/scss/': `${path.resolve(__dirname, 'src/assets/scss')}/`,

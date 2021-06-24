@@ -34,7 +34,7 @@ const AvatarStyled = styled.div<AvatarProps>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: ${color.WHITE};
+  color: ${color.FIXED_WHITE_1};
   overflow: hidden;
 `;
 

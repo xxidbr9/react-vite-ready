@@ -1,13 +1,19 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
-import Footer, { FooterProps } from '../Footer'
+import Footer, { FooterProps, VariantFooter } from '../Footer'
 
 const Template: Story<FooterProps> = (args) => <Footer {...args} />
 
 export default {
   title: 'Organisms/Footer',
   component: Footer,
-  args: {
+  argTypes: {
+    variant: {
+      options: VariantFooter,
+      control: { type: 'select' },
+      description: "change variant",
+      defaultValue: "dark"
+    },
   }
 } as Meta;
 

@@ -1,4 +1,4 @@
-module.exports = {
+const setting = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -12,7 +12,13 @@ module.exports = {
         YELLOW: "#FFBD00",
         BROKEN_WHITE: "#F5F5F5",
         FIXED_WHITE_1: "#FFF",
-        BLACK:"#403837"
+        BLACK: "#403837"
+      },
+      screens: {
+        'mobile': '320px',
+        'tablet': '630px',
+        'laptop': '1024px',
+        'desktop': '1280px',
       },
     },
   },
@@ -21,3 +27,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+module.exports = setting
