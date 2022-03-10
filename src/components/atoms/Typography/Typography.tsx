@@ -7,7 +7,7 @@ type Variant = {
   fontWeight?: FontWeightType
 }
 
-const TypographyStyled = styled.span<Variant>`
+const TypographyStyled = styled.p<Variant>`
   ${productSansFont}
   font-size: ${({ size }) => !!size ? size + "px" : "14px"};
   font-weight: ${({ fontWeight }) => !!fontWeight ? fontWeight : "normal"};
@@ -18,7 +18,7 @@ export type TypographyProps = {
   weight?: FontWeightType
 }
 
-const Typography: React.FC<TypographyProps & JSX.IntrinsicElements["span"]> = ({ variant, weight, ...props }) => {
+const Typography: React.FC<TypographyProps & JSX.IntrinsicElements["p"]> = ({ variant, weight, ...props }) => {
   return (
     <TypographyStyled size={variant} fontWeight={weight} {...props} />
   )

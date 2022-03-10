@@ -17,9 +17,13 @@ const fontSizing = [12, 14, 16, 18, 20, 24, 30, 36, 48, 64]
 
 const weightSize = [...Array.from({ length: 10 }).map((e, i) => i * 100).filter(e => !!e)]
 
-export type FontWeightType = JSX.IntrinsicElements["span"]["style"]["fontWeight"] | typeof weightSize
+export type FontWeightType = JSX.IntrinsicElements["span"]["style"]["fontWeight"] | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
 
-export type FontSizingType = typeof fontSizing
+export type FontSizingType = 10 | 12 | 14 | 16 | 18 | 20 | 24 | 30 | 36 | 48 | 64
+
+export const optionsWeigth = (): FontWeightType[] => {
+  return ["bold", 'bolder', 'lighter', 'normal', ...Font.weightSize]
+}
 
 export const productSansFont = css`
 @font-face {

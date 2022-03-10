@@ -2,18 +2,23 @@ import { Meta, Story } from '@storybook/react'
 import React from 'react'
 import Icon, { IconProps } from '../Icon'
 import BellIcon from '@assets/svg/icon/Bell.icon'
-import BellIcon2 from '@assets/svg/icon/Cart.icon'
+import Cart from '@assets/svg/icon/Cart.icon'
 
+
+/* 
+===== TODP =====
+[ ] Add card Components
+=== END TODO ===
+
+*/
 
 const Template: Story<IconProps> = (args) => <Icon {...args} />
 
 export default {
   title: 'Atoms/Icon',
   component: Icon,
-  args:{
-    iconSrc:{
-      description:"type(React.node)"
-    }
+  argTypes: {
+
   }
 } as Meta;
 
@@ -22,7 +27,8 @@ IconDefault.args = {
   iconSrc: BellIcon
 }
 
-export const IconDefault2 = Template.bind({})
-IconDefault2.args = {
-  iconSrc: BellIcon2
+export const IconWithWraper = Template.bind({})
+IconWithWraper.args = {
+  iconSrc: BellIcon,
+  number: 2
 }

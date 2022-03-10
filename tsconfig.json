@@ -15,15 +15,14 @@
     "noEmit": true,
     "jsx": "react",
     "baseUrl": ".",
-    "typeRoots": ["src/utils/types/*"],
+    "typeRoots": ["./src/utils/types/*"],
     "paths": {
-      "@app/*": ["./src/*"],
       "@assets/images/*": ["./src/assets/images/*"],
       "@assets/scss/*": ["./src/assets/scss/*"],
       "@assets/svg/*": ["./src/assets/svg/*"],
-      "@assets/font/*":["./src/assets/font/*"],
+      "@assets/font/*": ["./src/assets/font/*"],
       "@components/atoms/*": ["./src/components/atoms/*"],
-      "@components/molecule/*": ["./src/components/molecules/*"],
+      "@components/molecules/*": ["./src/components/molecules/*"],
       "@components/organisms/*": ["./src/components/organisms/*"],
       "@components/templates/*": ["./src/components/templates/*"],
       "@styles/*": ["./src/styles/*"],
@@ -32,7 +31,9 @@
       "@utils/mocks/*": ["./src/utils/mocks/*"],
       "@utils/helpers/*": ["./src/utils/helpers/*"],
       "@utils/hooks/*": ["./src/utils/hooks/*"],
-      "@utils/libs/*": ["./src/utils/libs/*"]
+      "@utils/libs/*": ["./src/utils/libs/*"],
+      "@base/*": ["./*"],
+      "@app/*": ["./src/*"]
     }
   },
   "include": ["./src", "stories", "**/*.ts", "**/*.tsx", "**/*.stories.*"]

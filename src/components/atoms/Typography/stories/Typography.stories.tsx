@@ -1,13 +1,8 @@
-import Font, { FontWeightType } from '@app/styles/fonts';
+import Font, { optionsWeigth } from '@app/styles/fonts';
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
 import Typography, { TypographyProps } from '../Typography'
 
-
-
-const optionsWeigth = (): FontWeightType[] => {
-  return ["bold", 'bolder', 'lighter', 'normal', ...Font.weightSize]
-}
 
 export default {
   title: 'Atoms/Typography',
@@ -16,7 +11,7 @@ export default {
     variant: {
       options: Font.fontSizing,
       control: { type: 'select' },
-      description:"is for change the text size",
+      description: "is for change the text size",
       defaultValue: 14
     },
     weight: {

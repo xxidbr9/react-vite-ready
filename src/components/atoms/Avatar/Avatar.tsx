@@ -18,6 +18,8 @@ const variantSizeHandle = (variant) => {
       return '9.063rem'
     case 'small':
       return '2.5rem'
+    default:
+      return '2.5rem'
   }
 }
 
@@ -32,7 +34,7 @@ const AvatarStyled = styled.div<AvatarProps>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: ${color.WHITE};
+  color: ${color.FIXED_WHITE_1};
   overflow: hidden;
 `;
 
